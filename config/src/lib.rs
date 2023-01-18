@@ -269,6 +269,13 @@ impl KeyPair {
         let (name, secret) = generate_production_keypair();
         Self { name, secret }
     }
+    //TODO remove this, this was just for proof of concept to play nice with Libp2p...Unsecure
+    pub fn load(name: [u8; 32], secret: [u8; 64]) -> Self {
+        Self {
+            name: PublicKey(name),
+            secret: SecretKey::from_bytes(secret),
+        }
+    }
 }
 
 impl Default for KeyPair {

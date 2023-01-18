@@ -132,6 +132,10 @@ impl SecretKey {
             .map_err(|_| base64::DecodeError::InvalidLength)?;
         Ok(Self(array))
     }
+    //TODO: Unsafe remove this function this is temp to play nice with LibP2P for PoC
+    pub fn from_bytes(bytes: [u8; 64]) -> Self {
+        Self(bytes)
+    }
 }
 
 impl Serialize for SecretKey {
