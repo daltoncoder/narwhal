@@ -58,7 +58,7 @@ pub trait Export: Serialize {
 pub type Stake = u32;
 pub type WorkerId = u32;
 
-#[derive(Deserialize, Clone, Eq, PartialEq)]
+#[derive(Deserialize, Serialize, Clone, Eq, PartialEq)]
 pub struct Parameters {
     /// The preferred header size. The primary creates a new header when it has enough parents and
     /// enough batches' digests to reach `header_size`. Denominated in bytes.
